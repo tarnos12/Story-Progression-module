@@ -10,10 +10,15 @@
 
 How to use:
 StoryProgression.Add(LocationType, typeId, storyId, dialogId, emptyString(not used yet), roomId, interactionType(enum, not used currently), InventoryItem);
+
 //Example:
+
 StoryProgression.Add(eLocationCharacter, CHARACTER_EGO, 123, DIALOG_01, "", ROOM_MAIN, eInteract, null);
+
 StoryProgression.Add(eLocationObject, OBJECT_DOOR, 123, DIALOG_NULL, "", ROOM_MAIN, eInteract, iKey);
+
 StoryProgression.Add(eLocationObject, OBJECT_DOOR, 123, DIALOG_02, "", ROOM_MAIN, eInteract, null);
+
 StoryProgression.Add(eLocationCharacter, CHARACTER_EGO, 123, DIALOG_03, "", ROOM_MAIN, eInteract, iCup);
 
 For Characters you can pass -1 roomId since those don't use rooms, objects/hotspot need to have a room tho.
