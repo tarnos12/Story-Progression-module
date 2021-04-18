@@ -1,5 +1,6 @@
 //Define hotspots/objects with their ID's
 
+
 //Hotspots
 #define HOTSPOT_ROOM_COUCH 6
 
@@ -26,7 +27,6 @@ enum InteractionType {
 };
 
 
-
 struct StoryProgression{
     int objectId;
     int hotspotId;
@@ -40,15 +40,12 @@ struct StoryProgression{
     
     
     import static void Add(LocationType type, int typeId, int storyId, int dialogId, String cutAwayName, int roomId, InteractionType interactionType, InventoryItem *item);
+    import static void AddDefaultDialogs(Character *characterRef, Dialog *dialogRef);
+    import static void InitializeQuestSystem(GUIControl *label);
+    import static void UpdateQuest();
+    import static int GetCurrentStoryId();
+    import static bool IsStoryInRange(int min, int max);
     
     import void Init();
     import void Execute();//Executes the story to move forward
 };
-
-
-import function StoryInteractObject(int storyId, int dialogID, String cutAwayName, String objectName, int roomId);
-import function StoryUseItemOnObject(int storyId, int dialogID, String cutAwayName, String objectName, int roomId, InventoryItem *itemRequired);
-import function StoryInteractHotspot(int storyId, int dialogID, String cutAwayName, String hotspotName, int roomId);
-import function StoryUseItemOnHotspot(int storyId, int dialogID, String cutAwayName, String hotspotName, int roomId, InventoryItem *itemRequired);
-import function StoryInteractCharacter(int storyId, int dialogID, String cutAwayName, Character *characterRef);
-import function StoryUseItemOnCharacter(int storyId, int dialogID, String cutAwayName, Character *characterRef, InventoryItem *itemRequired);

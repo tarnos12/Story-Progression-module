@@ -1522,12 +1522,46 @@ stop
           </Dialog>
           <Dialog>
             <ID>1</ID>
-            <Name>dDialog_02</Name>
+            <Name>dEgo_02</Name>
             <ShowTextParser>False</ShowTextParser>
             <Script><![CDATA[// Dialog script file
 @S  // Dialog startup entry point
-Roger: This is dialog number 2, good job on completing this quest.
-Ego: Thanks :)
+Roger: *Throws cup of coffee at Ego*
+Ego: That hurts!
+Roger: Sorry
+Ego: Leave me alone!
+stop
+]]></Script>
+            <DialogOptions />
+          </Dialog>
+          <Dialog>
+            <ID>2</ID>
+            <Name>dEgoDefault</Name>
+            <ShowTextParser>False</ShowTextParser>
+            <Script><![CDATA[// Dialog script file
+@S  // Dialog startup entry point
+    if(StoryProgression.IsStoryInRange(1000,1000)){
+        cEgo.Say("Give me the key to progress the story");
+        player.Say("Ok, let me open my inventory");
+    }
+    if(StoryProgression.IsStoryInRange(1001,1002)){
+        cEgo.Say("Hey, did you click on that boot?");
+        if(StoryProgression.GetCurrentStoryId() == 1001){
+            player.Say("No...");
+            cEgo.Say("What are you waiting for then?");
+            player.Say("Sigh...");
+        }else{
+            player.Say("Yes, I did...");
+            cEgo.Say("Then bring me a Cup of coffee and we can finish this presentation");
+            player.Say("Where do I find the cup of cofee?");
+            cEgo.Say("Don't you have it in your pocket? Just throw it at me!");
+            player.Say("k");
+        }
+    }
+    if(StoryProgression.IsStoryInRange(1003,1005)){
+        cEgo.Say("Ugh...I will remember that");
+        player.Say("I don't know what to say");
+    }
 stop
 ]]></Script>
             <DialogOptions />
@@ -3840,7 +3874,7 @@ stop
           <ScriptAndHeader>
             <ScriptAndHeader_Header>
               <Script>
-                <FileName>StoryProgression.ash</FileName>
+                <FileName>StoryProgressionSystem.ash</FileName>
                 <Name />
                 <Description />
                 <Author />
@@ -3851,7 +3885,7 @@ stop
             </ScriptAndHeader_Header>
             <ScriptAndHeader_Script>
               <Script>
-                <FileName>StoryProgression.asc</FileName>
+                <FileName>StoryProgressionSystem.asc</FileName>
                 <Name />
                 <Description />
                 <Author />
